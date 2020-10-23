@@ -32,6 +32,9 @@ display_usage() {
   echo -e "  branch | tag  The branch (e.g. master | release-2.0.5)"
 }
 
+CD_DOCKER_USERNAME=renatobortolin
+CD_DOCKER_PASSWORD=riukendj54jiM
+
 # if less than two arguments supplied, display usage
 if [ $# -le 0 ]; then
 	display_usage

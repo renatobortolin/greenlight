@@ -142,6 +142,9 @@ class SessionsController < ApplicationController
       return redirect_to(ldap_signin_path, alert: I18n.t("invalid_credentials"))
     end
 
+    return redirect_to ldap_signin_path,
+        flash: { alert: I18n.t("recaptcha.errors.verification_failed") } unless valid_captcha
+
     result = send_ldap_request(params[:session], ldap_config)
 
     return redirect_to(ldap_signin_path, alert: I18n.t("invalid_credentials")) unless result

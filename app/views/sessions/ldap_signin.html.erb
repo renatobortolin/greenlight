@@ -22,7 +22,12 @@
                                 </span>
                                 <%= f.password_field :password, class: "form-control", placeholder: t("password"), value: "" %>
                             </div>
-                        </div>
+			</div>
+			<% if recaptcha_enabled? %>
+			   <div class="form-group" style="padding-left: 21%;">
+			   <%= recaptcha_tags %>
+			   </div>
+		        <% end %>
                         <div>
                             <%= f.submit t("login"), class: "btn btn-primary btn-block signin-button" %>
                         </div>

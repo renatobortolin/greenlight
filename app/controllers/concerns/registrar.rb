@@ -63,6 +63,10 @@ module Registrar
 
     valid_user && valid_captcha
   end
+  
+  def valid_captcha
+    valid_captcha = Rails.configuration.recaptcha_enabled ? verify_recaptcha(model: @user) : true
+  end
 
   # Checks if the user trying to sign in with twitter account
   def check_if_twitter_account(log_out = false)
